@@ -4,11 +4,12 @@ map.zoomControl.setPosition("topright");
 
 // adding various tilelayer
 var OpenStreetMap = L.tileLayer(
-  "https://tile.openstreetmap.bzh/br/{z}/{x}/{y}.png",
+  "https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.{ext}",
   {
     maxZoom: 18,
     minZoom: 7,
     attribution: "OpenStreetMap",
+    ext: "png",
   }
 ).addTo(map);
 var googleHybrid = L.tileLayer(
