@@ -3,13 +3,17 @@ var map = L.map("map").setView([-3.42, 39.9093], 11);
 map.zoomControl.setPosition("topright");
 
 // adding various tilelayer
+var OpenStreetMap = L.tileLayer('https://tile.openstreetmap.bzh/br/{z}/{x}/{y}.png', {
+	maxZoom: 19,
+	attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Tiles courtesy of <a href="http://www.openstreetmap.bzh/" target="_blank">Breton OpenStreetMap Team</a>',
+}).addToMap;
 var googleHybrid = L.tileLayer(
   "http://{s}.google.com/vt/lyrs=s,h&x={x}&y={y}&z={z}",
   {
     maxZoom: 20,
     subdomains: ["mt0", "mt1", "mt2", "mt3"],
   }
-).addTo(map);
+)
 
 var googleStreets = L.tileLayer(
   "http://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}",
@@ -154,6 +158,7 @@ nairobiSublocs.addTo(map);
 
 //Leaflet layer control
 var baseMaps = {
+  "Open Street Map": OpenStreetMap,
   "Google Hybrid": googleHybrid,
   "Google Streets": googleStreets,
   "Google Satelite": googleSat,
